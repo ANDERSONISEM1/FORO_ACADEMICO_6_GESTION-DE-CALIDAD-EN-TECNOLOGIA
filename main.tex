@@ -1,0 +1,80 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[spanish,es-noshorthands,provide=*]{babel}
+\usepackage{csquotes}
+\usepackage[letterpaper,margin=2.4cm]{geometry}
+\usepackage{setspace}
+\setstretch{1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\usepackage{mathptmx}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\titleformat{\section}{\bfseries\normalsize\raggedright}{}{0pt}{}
+\titlespacing\section{0pt}{0.4\baselineskip}{0\baselineskip}
+\usepackage[style=apa,backend=biber,sortcites=true]{biblatex}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\addbibresource{referencias.bib}
+
+\begin{document}
+
+\begin{center}
+\textbf{\uppercase{GESTION DE CALIDAD EN TECNOLOGIA}}\\
+\textit{A. A. Isem Cac}\\
+\textit{7690-22-9604 Universidad Mariano Gálvez}\\
+\textit{Seminario de Tecnologías de Información}\\
+\textit{aisemc@miumg.edu.gt}
+\end{center}
+
+\section*{Resumen}
+Este trabajo busca responder cómo garantizar la calidad de un proyecto de tecnologías de la información (TI), partiendo de que garantizarla no equivale a eliminar todo defecto, sino a reducir de forma demostrable la probabilidad de entregar algo que no cumple lo que se necesita. Para ello se contrastaron las normas de la Organización Internacional de Normalización (ISO) sobre gestión y calidad de producto, el enfoque de gestión de calidad de proyectos del \textit{Project Management Institute} y prácticas de ingeniería de \textit{software} ampliamente documentadas, como la integración continua y la medición del desempeño de entrega. Los resultados indican que la calidad se sostiene en cuatro niveles complementarios. El primero es un sistema de gestión que fija responsabilidades, el segundo un modelo que define los atributos del producto, el tercero un plan que asigna controles a cada etapa y el cuarto un conjunto de prácticas técnicas que detectan los errores cuando todavía son baratos de corregir. También se encontró que cuidar la calidad interna del código reduce el costo de los cambios futuros, de modo que no frena el avance del proyecto. Se concluye que ninguna norma ni herramienta garantiza la calidad por sí sola, y que esta resulta de combinar gobierno, criterios medibles y disciplina técnica desde el inicio del trabajo.
+
+\noindent\textbf{Palabras clave: }gestión de calidad, proyectos de TI, ISO 9001, integración continua
+
+\section*{Desarrollo del tema}
+
+\textbf{Qué significa garantizar la calidad}\\
+Es común hablar de calidad como si fuera sinónimo de ausencia de errores, pero las normas de gestión la definen de una manera más útil para un proyecto, pues la entienden como el grado en que las características propias de un producto, servicio o proceso cumplen los requisitos que se le exigen \parencite{iso_9001_2026}. Esta definición traslada la conversación desde la perfección hacia el cumplimiento y obliga a preguntarse primero quién exige qué. Por eso, garantizar la calidad de un proyecto de TI empieza antes de programar, cuando el equipo acuerda con los interesados qué debe hacer el sistema, cómo debe comportarse mientras lo hace y de qué manera se comprobará que lo logró. Una garantía absoluta no existe, pero sí una confianza razonable que se construye con evidencias.
+
+\textbf{Calidad del producto, nombrar lo que se espera}\\
+Muchos equipos logran ponerse de acuerdo sobre las funciones del sistema, pero no sobre su comportamiento. El modelo de calidad de producto de la norma ISO/IEC 25010:2023, elaborada junto con la Comisión Electrotécnica Internacional (IEC), ayuda a cerrar esa brecha porque ofrece un vocabulario común organizado en nueve características, que son la adecuación funcional, la eficiencia de desempeño, la compatibilidad, la capacidad de interacción, la fiabilidad, la seguridad, la mantenibilidad, la flexibilidad y la protección frente a daños, conocida en inglés como \textit{safety} \parencite{iso_25010_2023}. Su valor no está en memorizar la lista, sino en convertir cada característica en un requisito comprobable. Decir que el sistema debe ser rápido no permite diseñar ninguna prueba, mientras que exigir que el 95 \% de las consultas responda en menos de dos segundos con cien usuarios simultáneos sí lo permite. Lo mismo vale para la fiabilidad o la mantenibilidad, que solo se vuelven gestionables cuando tienen un criterio de aceptación.
+
+\textbf{Calidad del proceso, de la gestión al \textit{software}}\\
+Si ISO/IEC 25010 describe cómo debe ser el producto, ISO 9001 describe cómo debe organizarse quien lo produce. Su sexta edición, publicada en septiembre de 2026, conserva la estructura que va del contexto de la organización al liderazgo, la planificación, el apoyo, la operación, la evaluación del desempeño y la mejora, e incorpora un énfasis más claro en la cultura de calidad, en el liderazgo y en tratar por separado los riesgos y las oportunidades \parencite{iso_9001_2026}. Para quienes desarrollan programas existe además la guía ISO/IEC/IEEE 90003, elaborada también con el Instituto de Ingenieros Eléctricos y Electrónicos (IEEE), que explica cómo aplicar ISO 9001 a la adquisición, el suministro, el desarrollo, la operación y el mantenimiento de \textit{software} \parencite{iso_90003_2018}. En la práctica, una guía así permite entender qué evidencia corresponde a cada requisito general. El control de la información documentada, por ejemplo, se refleja en el historial de un sistema de control de versiones.
+
+\textbf{Calidad dentro del proyecto, planificar, asegurar y controlar}\\
+En la gestión de proyectos, la calidad se organiza en tres procesos que el \textit{Project Management Institute} (PMI) incluyó en su guía de fundamentos y que Rever \parencite*{rever_2007} explica con un enfoque práctico. Planificar implica fijar métricas que vayan más allá del alcance, el tiempo y el costo y que se conecten con algo que importe a la organización, como la precisión de los pedidos o el tiempo de atención, porque un proyecto existe para mejorar alguna parte del negocio. Asegurar la calidad consiste en comprobar que los datos con los que se mide sean exactos y en analizar los procesos para mejorarlos de manera continua. Controlarla significa vigilar esas métricas con gráficos sencillos y distinguir la variación normal de un proceso de la que revela un problema real, para no reaccionar ante cada fluctuación. El mismo autor recuerda que los costos de la mala calidad se agrupan en prevención, evaluación, fallas internas y fallas externas, y que las fallas son la categoría más cara, lo que respalda invertir en prevenir.
+
+\textbf{Prácticas técnicas que detectan errores a tiempo}\\
+Las normas y los planes fijan la intención, pero la calidad se juega en el trabajo diario del equipo. La integración continua, tal como la describe Fowler \parencite*{fowler_ci_2024}, consiste en que cada integrante incorpore sus cambios al código común al menos una vez al día y en que cada incorporación se verifique mediante una construcción automática que incluya pruebas, con el propósito de descubrir los errores de integración lo antes posible. Entre las prácticas que sostienen ese esquema, el autor destaca automatizar la construcción, lograr que esta se pruebe a sí misma, reparar de inmediato cualquier construcción fallida, mantenerla rápida, con una referencia de unos diez minutos, y probar en un entorno que reproduzca el de producción. Advierte además que el principal obstáculo para adoptarla suele ser la falta de destreza para escribir pruebas más que la falta de herramientas. Dicho de otro modo, la automatización amplifica la disciplina de pruebas del equipo, pero no la reemplaza.
+
+\textbf{Calidad interna y costo del proyecto}\\
+Un error frecuente es creer que cuidar la estructura del código es un lujo que compite con entregar funciones. Fowler \parencite*{fowler_calidad_2019} distingue entre la calidad externa, la que perciben los usuarios a través de la interfaz y de los defectos, y la calidad interna, que se refiere a cómo está organizado el código y que el cliente no puede ver. Aunque nadie paga directamente por esta última, determina qué tan rápido y con cuántos errores se pueden agregar funciones nuevas, y por eso el autor concluye que en el \textit{software} una calidad interna alta no encarece el desarrollo, sino que lo abarata. Según los desarrolladores con experiencia que consulta, la baja calidad interna empieza a frenar el trabajo en cuestión de semanas, de modo que el margen en que se gana velocidad sacrificándola es muy corto. Un estudio de Tornhill y Borg, que Fowler incorpora a su artículo, halló en 39 bases de código que resolver problemas en código de baja calidad tomaba más del doble de tiempo y que su densidad de defectos era quince veces mayor.
+
+\textbf{Medir para decidir, las métricas de DORA}\\
+Lo que no se mide termina discutiéndose por opinión. El programa de investigación \textit{DevOps Research and Assessment} (DORA), que opera Google Cloud, propone cinco métricas para evaluar el desempeño de entrega de un equipo \parencite{dora_metricas_2026}. Tres miden el flujo de cambios, que son el tiempo desde que un cambio se registra hasta que llega a producción, la frecuencia de despliegue y el tiempo de recuperación tras un despliegue fallido. Las otras dos miden la inestabilidad, es decir, la proporción de despliegues que requieren intervención inmediata y la de despliegues no planificados originados por incidentes en producción. La conclusión más relevante para este trabajo es que rapidez y estabilidad no se contraponen, ya que los equipos de mejor desempeño sobresalen en las cinco métricas a la vez. DORA advierte, sin embargo, contra convertir las métricas en metas, porque un equipo presionado por cumplir un número tiende a manipularlo, y contra comparar aplicaciones de naturaleza muy distinta.
+
+\textbf{Una ruta integrada para el proyecto}\\
+Al reunir lo anterior se obtiene una secuencia razonable para un proyecto real. Primero se acuerdan con las partes interesadas requisitos medibles, apoyándose en las características de ISO/IEC 25010. Luego se documentan en un plan de calidad que asigna a cada etapa sus controles y sus métricas, siguiendo la lógica de planificar, asegurar y controlar. En paralelo, el equipo automatiza la verificación con integración continua y cuida la estructura interna del código para no encarecer los cambios futuros. Por último, se observan indicadores de entrega como los de DORA y se revisa el sistema de gestión de la organización, de modo que los hallazgos alimenten la siguiente iteración. Ningún paso garantiza el resultado por sí solo, pero en conjunto reducen de forma sostenida la probabilidad de entregar un producto que no cumpla lo que se necesita.
+
+\section*{Observaciones y comentarios}
+Las normas revisadas son marcos de gestión y no manuales de ejecución, por lo que cumplirlas no asegura por sí mismo un buen producto. Llama la atención, además, que ISO 9001 se actualizó en septiembre de 2026 mientras que su guía sectorial para \textit{software}, ISO/IEC/IEEE 90003, se redactó en 2018 para la edición de 2015, por lo que conviene que los equipos interpreten sus recomendaciones con criterio frente a los cambios de la nueva edición. Por último, las métricas de entrega describen cómo trabaja el equipo, pero no sustituyen la opinión de quienes usan el sistema.
+
+\section*{Conclusiones}
+\begin{enumerate}
+  \item Garantizar la calidad de un proyecto de TI consiste en reducir con evidencias la probabilidad de incumplir los requisitos, no en prometer la ausencia total de defectos.
+  \item ISO 9001 aporta el marco de gestión y ISO/IEC 25010 aporta el vocabulario para definir qué atributos debe cumplir el producto.
+  \item Planificar, asegurar y controlar la calidad exige métricas ligadas a los objetivos de la organización y no solo al alcance, el tiempo y el costo.
+  \item La integración continua y el cuidado de la calidad interna del código reducen el costo de los cambios y permiten detectar errores cuando son más baratos de corregir.
+  \item Medir el desempeño de entrega con indicadores como los de DORA ayuda a decidir mejoras, siempre que no se conviertan en metas aisladas.
+\end{enumerate}
+
+\section*{Bibliografía}
+\printbibliography[heading=none]
+\nocite{*}
+
+\bigskip
+\noindent\textbf{Repositorio del Proyecto: }\url{https://github.com/ANDERSONISEM1/FORO_ACADEMICO_N_GESTION-DE-CALIDAD-EN-TECNOLOGIA.git}
+
+\end{document}
